@@ -139,6 +139,79 @@
       </el-table-column>
     </el-table>
   </div>
+  <div>
+    <el-tag closable="">Tag 1</el-tag>
+<el-tag type="success">Tag 2</el-tag>
+<el-tag type="info">Tag 3</el-tag>
+<el-tag type="warning">Tag 4</el-tag>
+<el-tag type="danger">Tag 5</el-tag>
+  </div>
+  <div>
+    <el-progress :percentage="50"></el-progress>
+<el-progress :percentage="100" :format="format"></el-progress>
+<el-progress :percentage="100" status="success"></el-progress>
+<el-progress :percentage="100" status="warning"></el-progress>
+<el-progress :percentage="50" status="exception"></el-progress>
+  </div>
+
+  <div>
+      <span class="demonstration">When you have few pages</span>
+  <el-pagination
+  background
+    layout="prev, pager, next"
+    :total="1000">
+  </el-pagination>
+  </div>
+
+  <div>
+    <span class="demonstartion">Total item count</span>
+   <div class="block">
+    <span class="demonstration">Total item count</span>
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page.sync="currentPage1"
+      :page-size="100"
+      layout="total, prev, pager, next"
+      :total="1000">
+    </el-pagination>
+  </div>
+  <div class="block">
+    <span class="demonstration">Change page size</span>
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page.sync="currentPage2"
+      :page-sizes="[100, 200, 300, 400]"
+      :page-size="100"
+      layout="sizes, prev, pager, next"
+      :total="1000">
+    </el-pagination>
+  </div>
+  <div class="block">
+    <span class="demonstration">Jump to</span>
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page.sync="currentPage3"
+      :page-size="100"
+      layout="prev, pager, next, jumper"
+      :total="1000">
+    </el-pagination>
+  </div>
+  <div class="block">
+    <span class="demonstration">All combined</span>
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page.sync="currentPage4"
+      :page-sizes="[100, 200, 300, 400]"
+      :page-size="100"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="400">
+    </el-pagination>
+  </div>
+  </div>
 
   </div>
 </template>
@@ -149,6 +222,7 @@ export default {
     return {
       flag: false,
       time: "",
+      currentPage1: 5,
       value1: true,
       value0: 0,
       value2: 50,
@@ -187,6 +261,12 @@ export default {
     formatTooltip(val) {
       return val / 100;
     },
+    handleSizeChange(val) {
+        console.log(`${val} items per page`);
+    },
+      handleCurrentChange(val) {
+        console.log(`current page: ${val}`);
+      }
   },
 };
 </script>
