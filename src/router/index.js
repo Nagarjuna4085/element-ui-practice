@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import UiElements from "../components/UiElements";
 import LayoutContainer from "../components/LayoutContainer";
-
+import PracticeUi from "../components/PracticeUi";
 Vue.use(VueRouter)
 
 const routes = [
@@ -30,6 +30,11 @@ const routes = [
     path: "/uielements",
     name: "UiElements",
     component: UiElements,
+  },
+  {
+    path: "PracticeUi",
+    name: "PracticeUi",
+    component: PracticeUi,
   },
 ];
 

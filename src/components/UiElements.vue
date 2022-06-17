@@ -3,6 +3,7 @@
     <p>{{ checked }}</p>
     <p>{{ radio }}</p>
     <p>{{website}}</p>
+    <p>{{value}}</p>
     <el-radio v-model="radio" label="1">Option A</el-radio>
     <el-radio v-model="radio" label="2" border></el-radio>
     <div>
@@ -33,7 +34,15 @@
 
     </div>
     <div>
-        
+    <el-select     allow-create
+ filterable clearable multiple="" v-model="value" placeholder="select">
+      <el-option
+      v-for="item in options"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value"
+       ></el-option>
+    </el-select>
     </div>
   </div>
 </template>
@@ -47,7 +56,25 @@ export default {
       checkList: ["selected and disabled", "Option A"],
       name: "sanam",
       website:"",
-      num:1
+      num:1,
+        options: [{
+          value: 'nagarjuna',
+          label: 'sanam'
+        }, {
+          value: 'suresh',
+          label: 'Option2'
+        }, {
+          value: 'Option3',
+          label: 'Option3'
+        }, {
+          value: 'Option4',
+          label: 'Option4'
+        }, {
+          value: 'Option5',
+          label: 'Option5'
+        }],
+        value: ''
+      
     };
   },
 };

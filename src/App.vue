@@ -6,6 +6,7 @@
       <router-link to="/home">Home</router-link>
       <router-link to="/layout">Layout Container</router-link>
       <router-link to="/uielements">Ui-Elements</router-link>
+      <router-link to="PracticeUi">practice</router-link>
 
 
     </nav>
